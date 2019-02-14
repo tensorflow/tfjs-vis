@@ -52,7 +52,44 @@ import {getDrawArea} from './render_utils';
  * @param opts.width width of chart in px
  * @param opts.height height of chart in px
  * @param opts.fontSize fontSize in pixels for text in the chart
+ *
+ * ```js
+ * const rows = 5;
+ * const cols = 5;
+ * const values = [];
+ * for (let i = 0; i < rows; i++) {
+ *   const row = []
+ *   for (let j = 0; j < cols; j++) {
+ *     row.push(Math.round(Math.random() * 50));
+ *   }
+ *   values.push(row);
+ * }
+ * const data = { values };
+ *
+ * // Render to visor
+ * const surface = { name: 'Confusion Matrix', tab: 'Charts' };
+ * tfvis.render.confusionMatrix(data, surface);
+ * ```
+ *
+ * ```js
+ * // The diagonal can be excluded from shading.
+ *
+ * const data = {
+ *   values: [[4, 2, 8], [1, 7, 2], [3, 3, 20]],
+ *   // We also generate 'labels' if none are passed.
+ * }
+ *
+ * // Render to visor
+ * const surface = {
+ *  name: 'Confusion Matrix with Excluded Diagonal', tab: 'Charts'
+ * });
+ *
+ * tfvis.render.confusionMatrix(data, surface, {
+ *   shadeDiagonal: false
+ * });
+ * ```
  */
+/** @doc {heading: 'render.*', namespace: 'render'} */
 export async function renderConfusionMatrix(
     data: ConfusionMatrixData, container: Drawable,
     opts: VisOptions&

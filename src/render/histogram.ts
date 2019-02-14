@@ -53,7 +53,21 @@ const defaultOpts = {
  *      numZeros?: number,
  *      numNans?: number
  *    }
+ *
+ * ```js
+ * const data = Array(100).fill(0)
+ *   .map(x => Math.random() * 100 - (Math.random() * 50))
+ *
+ * // Push some special values for the stats table.
+ * data.push(Infinity);
+ * data.push(NaN);
+ * data.push(0);
+ *
+ * const surface = { name: 'Histogram', tab: 'Charts' };
+ * tfvis.render.histogram(data, surface);
+ * ```
  */
+/** @doc {heading: 'render.*', namespace: 'render'} */
 export async function renderHistogram(
     data: Array<{value: number}>|number[]|TypedArray, container: HTMLElement,
     opts: HistogramOpts = {}) {

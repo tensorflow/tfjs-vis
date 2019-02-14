@@ -50,7 +50,24 @@ import {getDrawArea} from './render_utils';
  * axis. This is overriden by zoomToFit
  * @param opts.yAxisDomain array of two numbers indicating the domain of the y
  * axis. This is overriden by zoomToFit
+ *
+ * ```js
+ * const series1 = Array(100).fill(0)
+ *   .map(y => Math.random() * 100 - (Math.random() * 50))
+ *   .map((y, x) => ({ x, y, }));
+ *
+ * const series2 = Array(100).fill(0)
+ *   .map(y => Math.random() * 100 - (Math.random() * 150))
+ *   .map((y, x) => ({ x, y, }));
+ *
+ * const series = ['First', 'Second'];
+ * const data = { values: [series1, series2], series }
+ *
+ * const surface = { name: 'Scatterplot', tab: 'Charts' };
+ * tfvis.render.scatterplot(data, surface);
+ * ```
  */
+/** @doc {heading: 'render.*', namespace: 'render'} */
 export async function renderScatterplot(
     data: {values: Point2D[][]|Point2D[], series?: string[]},
     container: Drawable, opts: XYPlotOptions = {}): Promise<void> {

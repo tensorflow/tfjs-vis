@@ -39,7 +39,21 @@ import {getDrawArea, nextFrame, shallowEquals} from './render_utils';
  * @param opts.fontSize fontSize in pixels for text in the chart
  *
  * @returns Promise - indicates completion of rendering
+ *
+ * ```js
+ * const data = [
+ *   { index: 0, value: 50 },
+ *   { index: 1, value: 100 },
+ *   { index: 2, value: 150 },
+ *  ];
+ *
+ * // Render to visor
+ * const surface = { name: 'Bar chart', tab: 'Charts' };
+ * tfvis.render.barchart(data, surface, {});
+ * ```
+ *
  */
+/** @doc {heading: 'render.*', namespace: 'render'} */
 export async function renderBarchart(
     data: Array<{index: number; value: number;}>, container: Drawable,
     opts: VisOptions = {}): Promise<void> {
