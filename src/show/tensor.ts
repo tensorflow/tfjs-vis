@@ -28,6 +28,16 @@ import {tensorStats} from '../util/math';
  * @param container A `{name: string, tab?: string}` object specifying which
  *  surface to render to.
  * @param tensor the input tensor
+ *
+ * ```js
+ * const tensor = tf.tensor1d([0, 0, 0, 0, 2, 3, 4]);
+ *
+ * const surface = {name: 'Values Distribution', tab: 'Model Inspection'};
+ * await tfvis.show.valuesDistribution(surface, tensor);
+ * ```
+ */
+/**
+ * @doc {heading: 'show.*', subheading: ' Model Inspection', namespace: 'show'}
  */
 export async function valuesDistribution(container: Drawable, tensor: Tensor) {
   const drawArea = getDrawArea(container);

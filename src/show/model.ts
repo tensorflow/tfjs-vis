@@ -31,6 +31,21 @@ import {tensorStats} from '../util/math';
  * @param container A `{name: string, tab?: string}` object specifying which
  *     surface to render to.
  * @param model
+ *
+ * ```js
+ * const model = tf.sequential({
+ *  layers: [
+ *    tf.layers.dense({inputShape: [784], units: 32, activation: 'relu'}),
+ *    tf.layers.dense({units: 10, activation: 'softmax'}),
+ *  ]
+ * });
+ *
+ * const surface = { name: 'Model Summary', tab: 'Model Inspection'};
+ * tfvis.show.modelSummary(surface, model);
+ * ```
+ */
+/**
+ * @doc {heading: 'show.*', subheading: ' Model Inspection', namespace: 'show'}
  */
 export async function modelSummary(container: Drawable, model: tf.Model) {
   const drawArea = getDrawArea(container);
@@ -61,6 +76,21 @@ export async function modelSummary(container: Drawable, model: tf.Model) {
  * @param container A `{name: string, tab?: string}` object specifying which
  *     surface to render to.
  * @param layer a `tf.layers.Layer`
+ *
+ * ```js
+ * const model = tf.sequential({
+ *  layers: [
+ *    tf.layers.dense({inputShape: [784], units: 32, activation: 'relu'}),
+ *    tf.layers.dense({units: 10, activation: 'softmax'}),
+ *  ]
+ * });
+ *
+ * const surface = { name: 'Model Summary', tab: 'Model Inspection'};
+ * tfvis.show.layer(surface, model.getLayer(undefined, 1));
+ * ```
+ */
+/**
+ * @doc {heading: 'show.*', subheading: ' Model Inspection', namespace: 'show'}
  */
 export async function layer(container: Drawable, layer: Layer) {
   const drawArea = getDrawArea(container);
