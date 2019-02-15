@@ -46,7 +46,8 @@ import {tensorStats} from '../util/math';
  *
  */
 /**
- * @doc {heading: 'show.*', subheading: 'Model Inspection', namespace: 'show'}
+ * @doc {heading: 'Models & Tensors', subheading: 'Model Inspection', namespace:
+ * 'show'}
  */
 export async function modelSummary(container: Drawable, model: tf.Model) {
   const drawArea = getDrawArea(container);
@@ -82,7 +83,7 @@ export async function modelSummary(container: Drawable, model: tf.Model) {
  *  ]
  * });
  *
- * const surface = { name: 'Model Summary', tab: 'Model Inspection'};
+ * const surface = { name: 'Layer Summary', tab: 'Model Inspection'};
  * tfvis.show.layer(surface, model.getLayer(undefined, 1));
  * ```
  *
@@ -92,7 +93,8 @@ export async function modelSummary(container: Drawable, model: tf.Model) {
  *
  */
 /**
- * @doc {heading: 'show.*', subheading: 'Model Inspection', namespace: 'show'}
+ * @doc {heading: 'Models & Tensors', subheading: 'Model Inspection', namespace:
+ * 'show'}
  */
 export async function layer(container: Drawable, layer: Layer) {
   const drawArea = getDrawArea(container);

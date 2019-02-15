@@ -38,7 +38,8 @@ import {tensorStats} from '../util/math';
  *
  */
 /**
- * @doc {heading: 'show.*', subheading: 'Model Inspection', namespace: 'show'}
+ * @doc {heading: 'Models & Tensors', subheading: 'Model Inspection', namespace:
+ * 'show'}
  */
 export async function valuesDistribution(container: Drawable, tensor: Tensor) {
   const drawArea = getDrawArea(container);

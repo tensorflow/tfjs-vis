@@ -54,7 +54,7 @@ import {getDrawArea, nextFrame, shallowEquals} from './render_utils';
  *
  *
  */
-/** @doc {heading: 'render.*', namespace: 'render'} */
+/** @doc {heading: 'Charts', namespace: 'render'} */
 export async function renderBarchart(
     data: Array<{index: number; value: number;}>, container: Drawable,
     opts: VisOptions = {}): Promise<void> {

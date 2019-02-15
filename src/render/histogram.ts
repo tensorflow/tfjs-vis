@@ -68,7 +68,7 @@ const defaultOpts = {
  *    }
  *
  */
-/** @doc {heading: 'render.*', namespace: 'render'} */
+/** @doc {heading: 'Charts', namespace: 'render'} */
 export async function renderHistogram(
     data: Array<{value: number}>|number[]|TypedArray, container: HTMLElement,
     opts: HistogramOpts = {}) {

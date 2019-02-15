@@ -155,7 +155,7 @@ export async function tensorStats(input: Tensor): Promise<HistogramStats> {
  * const labels = tf.tensor1d([1, 2, 4]);
  * const predictions = tf.tensor1d([2, 2, 4]);
  * const result = await tfvis.metrics.confusionMatrix(labels, predictions);
- * console.log(result);
+ * console.log(JSON.stringify(result, null, 2))
  * ```
  *
  * @param labels 1D tensor of true values
@@ -267,7 +267,7 @@ export async function accuracy(
  * const predictions = tf.tensor1d([0, 0, 0, 2, 1, 1]);
  *
  * const result = await tfvis.metrics.perClassAccuracy(labels, predictions);
- * console.log(result)
+ * console.log(JSON.stringify(result, null, 2))
  * ```
  *
  * Returns an array of objects that each have an an `accuracy` and a `count`

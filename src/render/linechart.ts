@@ -78,7 +78,7 @@ import {getDrawArea} from './render_utils';
  * axis. This is overriden by zoomToFit
  *
  */
-/** @doc {heading: 'render.*', namespace: 'render'} */
+/** @doc {heading: 'Charts', namespace: 'render'} */
 export async function renderLinechart(
     data: {values: Point2D[][]|Point2D[], series?: string[]},
     container: Drawable, opts: XYPlotOptions = {}): Promise<void> {

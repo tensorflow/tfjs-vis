@@ -51,13 +51,12 @@ import {getDrawArea} from './render_utils';
  *
  * const data = {
  *   values: [[4, 2, 8], [1, 7, 2], [3, 3, 20]],
- *   // We also generate 'labels' if none are passed.
  * }
  *
  * // Render to visor
  * const surface = {
  *  name: 'Confusion Matrix with Excluded Diagonal', tab: 'Charts'
- * });
+ * };
  *
  * tfvis.render.confusionMatrix(data, surface, {
  *   shadeDiagonal: false
@@ -90,7 +89,7 @@ import {getDrawArea} from './render_utils';
  * @param opts.fontSize fontSize in pixels for text in the chart
  *
  */
-/** @doc {heading: 'render.*', namespace: 'render'} */
+/** @doc {heading: 'Charts', namespace: 'render'} */
 export async function renderConfusionMatrix(
     data: ConfusionMatrixData, container: Drawable,
     opts: VisOptions&
