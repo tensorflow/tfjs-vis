@@ -87,7 +87,7 @@ export async function showPerClassAccuracy(
  * ```
  */
 /**
- * @doc {heading: 'show.*', subheadring: 'Model Evaluation', namespace:
+ * @doc {heading: 'show.*', subheading: 'Model Evaluation', namespace:
  * 'show'}
  */
 export async function showConfusionMatrix(

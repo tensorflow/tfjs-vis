@@ -110,7 +110,7 @@ import {subSurface} from '../util/dom';
  * ```
  */
 /**
- * @doc {heading: 'show.*', subheading: ' Model Training', namespace: 'show'}
+ * @doc {heading: 'show.*', subheading: 'Model Training', namespace: 'show'}
  */
 export async function history(
     container: Drawable, history: HistoryLike, metrics: string[],
@@ -271,7 +271,7 @@ function getValues(
  * ```
  */
 /**
- * @doc {heading: 'show.*', subheading: ' Model Training', namespace: 'show'}
+ * @doc {heading: 'show.*', subheading: 'Model Training', namespace: 'show'}
  */
 export function fitCallbacks(
     container: Drawable, metrics: string[],
