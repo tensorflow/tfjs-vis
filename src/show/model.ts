@@ -28,10 +28,6 @@ import {tensorStats} from '../util/math';
 /**
  * Renders a summary of a tf.Model. Displays a table with layer information.
  *
- * @param container A `{name: string, tab?: string}` object specifying which
- *     surface to render to.
- * @param model
- *
  * ```js
  * const model = tf.sequential({
  *  layers: [
@@ -43,6 +39,11 @@ import {tensorStats} from '../util/math';
  * const surface = { name: 'Model Summary', tab: 'Model Inspection'};
  * tfvis.show.modelSummary(surface, model);
  * ```
+ *
+ * @param container A `{name: string, tab?: string}` object specifying which
+ *     surface to render to.
+ * @param model
+ *
  */
 /**
  * @doc {heading: 'show.*', subheading: 'Model Inspection', namespace: 'show'}
@@ -73,10 +74,6 @@ export async function modelSummary(container: Drawable, model: tf.Model) {
  * Renders summary information about a layer and a histogram of parameters in
  * that layer.
  *
- * @param container A `{name: string, tab?: string}` object specifying which
- *     surface to render to.
- * @param layer a `tf.layers.Layer`
- *
  * ```js
  * const model = tf.sequential({
  *  layers: [
@@ -88,6 +85,11 @@ export async function modelSummary(container: Drawable, model: tf.Model) {
  * const surface = { name: 'Model Summary', tab: 'Model Inspection'};
  * tfvis.show.layer(surface, model.getLayer(undefined, 1));
  * ```
+ *
+ * @param container A `{name: string, tab?: string}` object specifying which
+ *     surface to render to.
+ * @param layer a `tf.layers.Layer`
+ *
  */
 /**
  * @doc {heading: 'show.*', subheading: 'Model Inspection', namespace: 'show'}

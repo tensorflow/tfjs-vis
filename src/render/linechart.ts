@@ -24,31 +24,6 @@ import {getDrawArea} from './render_utils';
 /**
  * Renders a line chart
  *
- * @param data Data in the following format
- *  {
- *    // A nested array of objects each with an x and y property,
- *    // one per series.
- *    // If you only have one series to render you can just pass an array
- *    // of objects with x, y properties
- *    values: {x: number, y: number}[][]
- *
- *    // An array of strings with the names of each series passed above.
- *    // Optional
- *    series: string[]
- *  }
- * @param container An HTMLElement in which to draw the chart
- * @param opts optional parameters
- * @param opts.width width of chart in px
- * @param opts.height height of chart in px
- * @param opts.xLabel label for x axis
- * @param opts.yLabel label for y axis
- * @param opts.fontSize fontSize in pixels for text in the chart
- * @param opts.zoomToFit a boolean indicating whether to allow non-zero
- * baselines setting this to true allows the line chart to take up more room in
- * the plot.
- * @param opts.yAxisDomain array of two numbers indicating the domain of the y
- * axis. This is overriden by zoomToFit
- *
  * ```js
  * const series1 = Array(100).fill(0)
  *   .map(y => Math.random() * 100 - (Math.random() * 50))
@@ -76,6 +51,32 @@ import {getDrawArea} from './render_utils';
  * const surface = { name: 'Zoomed Line Chart', tab: 'Charts' };
  * tfvis.render.linechart(data, surface, { zoomToFit: true });
  * ```
+ *
+ * @param data Data in the following format
+ *  {
+ *    // A nested array of objects each with an x and y property,
+ *    // one per series.
+ *    // If you only have one series to render you can just pass an array
+ *    // of objects with x, y properties
+ *    values: {x: number, y: number}[][]
+ *
+ *    // An array of strings with the names of each series passed above.
+ *    // Optional
+ *    series: string[]
+ *  }
+ * @param container An HTMLElement in which to draw the chart
+ * @param opts optional parameters
+ * @param opts.width width of chart in px
+ * @param opts.height height of chart in px
+ * @param opts.xLabel label for x axis
+ * @param opts.yLabel label for y axis
+ * @param opts.fontSize fontSize in pixels for text in the chart
+ * @param opts.zoomToFit a boolean indicating whether to allow non-zero
+ * baselines setting this to true allows the line chart to take up more room in
+ * the plot.
+ * @param opts.yAxisDomain array of two numbers indicating the domain of the y
+ * axis. This is overriden by zoomToFit
+ *
  */
 /** @doc {heading: 'render.*', namespace: 'render'} */
 export async function renderLinechart(

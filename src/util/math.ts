@@ -151,6 +151,13 @@ export async function tensorStats(input: Tensor): Promise<HistogramStats> {
  * labels and predictions should correspond to some output class. It is assumed
  * that these values go from 0 to numClasses - 1.
  *
+ * ```js
+ * const labels = tf.tensor1d([1, 2, 4]);
+ * const predictions = tf.tensor1d([2, 2, 4]);
+ * const result = await tfvis.metrics.confusionMatrix(labels, predictions);
+ * console.log(result);
+ * ```
+ *
  * @param labels 1D tensor of true values
  * @param predictions 1D tensor of predicted values
  * @param numClasses Number of distinct classes. Optional. If not passed in
@@ -160,15 +167,9 @@ export async function tensorStats(input: Tensor): Promise<HistogramStats> {
  *  If weights is passed in then each prediction contributes its corresponding
  *  weight to the total value of the confusion matrix cell.
  *
- * ```js
- * const labels = tf.tensor1d([1, 2, 4]);
- * const predictions = tf.tensor1d([2, 2, 4]);
- * const result = await tfvis.metrics.confusionMatrix(labels, predictions);
- * console.log(result);
- * ```
  */
 /**
- * @doc {heading: 'metrics', namespace: 'metrics'}
+ * @doc {heading: 'Metrics', namespace: 'metrics'}
  */
 export async function confusionMatrix(
     labels: Tensor1D, predictions: Tensor1D, numClasses?: number,
@@ -228,9 +229,6 @@ export async function confusionMatrix(
 /**
  * Computes how often predictions matches labels
  *
- * @param labels tensor of true values
- * @param predictions tensor of predicted values
- *
  * ```js
  * const labels = tf.tensor1d([0, 0, 1, 2, 2, 2]);
  * const predictions = tf.tensor1d([0, 0, 0, 2, 1, 1]);
@@ -238,9 +236,12 @@ export async function confusionMatrix(
  * const result = await tfvis.metrics.accuracy(labels, predictions);
  * console.log(result)
  * ```
+ *
+ * @param labels tensor of true values
+ * @param predictions tensor of predicted values
  */
 /**
- * @doc {heading: 'metrics', namespace: 'metrics'}
+ * @doc {heading: 'Metrics', namespace: 'metrics'}
  */
 export async function accuracy(
     labels: Tensor, predictions: Tensor): Promise<number> {
@@ -261,15 +262,6 @@ export async function accuracy(
  * labels and predictions should correspond to some output class. It is assumed
  * that these values go from 0 to numClasses - 1.
  *
- * Returns an array of objects that each have an an `accuracy` and a `count`
- * property for each class.
- *
- * @param labels 1D tensor of true values
- * @param predictions 1D tensor of predicted values
- * @param numClasses Number of distinct classes. Optional. If not passed in
- *  numClasses will equal the highest number in either labels or predictions
- *  plus 1
- *
  * ```js
  * const labels = tf.tensor1d([0, 0, 1, 2, 2, 2]);
  * const predictions = tf.tensor1d([0, 0, 0, 2, 1, 1]);
@@ -277,9 +269,19 @@ export async function accuracy(
  * const result = await tfvis.metrics.perClassAccuracy(labels, predictions);
  * console.log(result)
  * ```
+ *
+ * Returns an array of objects that each have an an `accuracy` and a `count`
+ * property for each class.
+ *
+ *
+ * @param labels 1D tensor of true values
+ * @param predictions 1D tensor of predicted values
+ * @param numClasses Number of distinct classes. Optional. If not passed in
+ *  numClasses will equal the highest number in either labels or predictions
+ *  plus 1
  */
 /**
- * @doc {heading: 'metrics', namespace: 'metrics'}
+ * @doc {heading: 'Metrics', namespace: 'metrics'}
  */
 export async function perClassAccuracy(
     labels: Tensor1D, predictions: Tensor1D,

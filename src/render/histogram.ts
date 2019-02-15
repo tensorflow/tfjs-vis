@@ -32,6 +32,19 @@ const defaultOpts = {
 /**
  * Renders a histogram of values
  *
+ * ```js
+ * const data = Array(100).fill(0)
+ *   .map(x => Math.random() * 100 - (Math.random() * 50))
+ *
+ * // Push some special values for the stats table.
+ * data.push(Infinity);
+ * data.push(NaN);
+ * data.push(0);
+ *
+ * const surface = { name: 'Histogram', tab: 'Charts' };
+ * tfvis.render.histogram(data, surface);
+ * ```
+ *
  * @param data Data in the following format:
  *  `[ {value: number}, ... ]` or `[number]` or `TypedArray`
  * @param container An `HTMLElement`|`Surface` in which to draw the histogram
@@ -54,18 +67,6 @@ const defaultOpts = {
  *      numNans?: number
  *    }
  *
- * ```js
- * const data = Array(100).fill(0)
- *   .map(x => Math.random() * 100 - (Math.random() * 50))
- *
- * // Push some special values for the stats table.
- * data.push(Infinity);
- * data.push(NaN);
- * data.push(0);
- *
- * const surface = { name: 'Histogram', tab: 'Charts' };
- * tfvis.render.histogram(data, surface);
- * ```
  */
 /** @doc {heading: 'render.*', namespace: 'render'} */
 export async function renderHistogram(

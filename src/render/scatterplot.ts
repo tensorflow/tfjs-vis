@@ -24,6 +24,23 @@ import {getDrawArea} from './render_utils';
 /**
  * Renders a scatter plot
  *
+ * ```js
+ * const headers = [
+ *  'Col 1',
+ *  'Col 2',
+ *  'Col 3',
+ * ];
+ *
+ * const values = [
+ *  [1, 2, 3],
+ *  ['4', '5', '6'],
+ *  ['strong>7</strong>', true, false],
+ * ];
+ *
+ * const surface = { name: 'Table', tab: 'Charts' };
+ * tfvis.render.table({ headers, values }, surface);
+ * ```
+ *
  * @param data Data in the following format
  *  {
  *    // A nested array of objects each with an x and y property,

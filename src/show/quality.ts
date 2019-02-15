@@ -23,14 +23,6 @@ import {ConfusionMatrixData, Drawable} from '../types';
 /**
  * Renders a per class accuracy table for classification task evaluation
  *
- * @param container A `{name: string, tab?: string}` object specifying which
- * surface to render to.
- * @param classAccuracy An `Array<{accuracy: number, count: number}>` array with
- * the accuracy data. See metrics.perClassAccuracy for details on how to
- * generate this object.
- * @param classLabels An array of string labels for the classes in
- * `classAccuracy`. Optional.
- *
  * ```js
  * const labels = tf.tensor1d([0, 0, 1, 2, 2, 2]);
  * const predictions = tf.tensor1d([0, 0, 0, 2, 1, 1]);
@@ -42,6 +34,15 @@ import {ConfusionMatrixData, Drawable} from '../types';
  * const categories = ['cat', 'dog', 'mouse'];
  * await tfvis.show.perClassAccuracy(container, result, categories);
  * ```
+ *
+ * @param container A `{name: string, tab?: string}` object specifying which
+ * surface to render to.
+ * @param classAccuracy An `Array<{accuracy: number, count: number}>` array with
+ * the accuracy data. See metrics.perClassAccuracy for details on how to
+ * generate this object.
+ * @param classLabels An array of string labels for the classes in
+ * `classAccuracy`. Optional.
+ *
  */
 export async function showPerClassAccuracy(
     container: Drawable,
@@ -68,13 +69,6 @@ export async function showPerClassAccuracy(
 /**
  * Renders a confusion matrix for classification task evaluation
  *
- * @param container A `{name: string, tab?: string}` object specifying which
- * surface to render to.
- * @param confusionMatrix A nested array of numbers with the confusion matrix
- * values. See metrics.confusionMatrix for details on how to generate this.
- * @param classLabels An array of string labels for the classes in
- * `confusionMatrix`. Optional.
- *
  * ```js
  * const labels = tf.tensor1d([0, 0, 1, 1, 2, 2, 2, 3 ,3 ,3, 4, 4]);
  * const predictions = tf.tensor1d([0, 0, 1, 0, 2, 3, 1, 3 ,4 ,3, 2, 2]);
@@ -85,6 +79,14 @@ export async function showPerClassAccuracy(
  * const categories = ['cat', 'dog', 'mouse', 'bird', 'fish'];
  * await tfvis.show.confusionMatrix(container, matrix, categories);
  * ```
+ *
+ * @param container A `{name: string, tab?: string}` object specifying which
+ * surface to render to.
+ * @param confusionMatrix A nested array of numbers with the confusion matrix
+ * values. See metrics.confusionMatrix for details on how to generate this.
+ * @param classLabels An array of string labels for the classes in
+ * `confusionMatrix`. Optional.
+ *
  */
 /**
  * @doc {heading: 'show.*', subheading: 'Model Evaluation', namespace:

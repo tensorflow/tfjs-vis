@@ -28,31 +28,6 @@ import {getDrawArea} from './render_utils';
  * is perfect (i.e. only the diagonal has values) then the diagonal will always
  * be shaded.
  *
- * @param data Data consists of an object with a 'values' property
- *  and a 'labels' property.
- *  {
- *    // a matrix of numbers representing counts for each (label, prediction)
- *    // pair
- *    values: number[][],
- *
- *    // Human readable labels for each class in the matrix. Optional
- *    labels?: string[]
- *  }
- *  e.g.
- *  {
- *    values: [[80, 23], [56, 94]],
- *    labels: ['dog', 'cat'],
- *  }
- * @param container An `HTMLElement` or `Surface` in which to draw the chart
- * @param opts optional parameters
- * @param opts.shadeDiagonal boolean that controls whether or not to color cells
- * on the diagonal. Defaults to true
- * @param opts.showTextOverlay boolean that controls whether or not to render
- * the values of each cell as text. Defaults to true
- * @param opts.width width of chart in px
- * @param opts.height height of chart in px
- * @param opts.fontSize fontSize in pixels for text in the chart
- *
  * ```js
  * const rows = 5;
  * const cols = 5;
@@ -88,6 +63,32 @@ import {getDrawArea} from './render_utils';
  *   shadeDiagonal: false
  * });
  * ```
+ *
+ * @param data Data consists of an object with a 'values' property
+ *  and a 'labels' property.
+ *  {
+ *    // a matrix of numbers representing counts for each (label, prediction)
+ *    // pair
+ *    values: number[][],
+ *
+ *    // Human readable labels for each class in the matrix. Optional
+ *    labels?: string[]
+ *  }
+ *  e.g.
+ *  {
+ *    values: [[80, 23], [56, 94]],
+ *    labels: ['dog', 'cat'],
+ *  }
+ * @param container An `HTMLElement` or `Surface` in which to draw the chart
+ * @param opts optional parameters
+ * @param opts.shadeDiagonal boolean that controls whether or not to color cells
+ * on the diagonal. Defaults to true
+ * @param opts.showTextOverlay boolean that controls whether or not to render
+ * the values of each cell as text. Defaults to true
+ * @param opts.width width of chart in px
+ * @param opts.height height of chart in px
+ * @param opts.fontSize fontSize in pixels for text in the chart
+ *
  */
 /** @doc {heading: 'render.*', namespace: 'render'} */
 export async function renderConfusionMatrix(
