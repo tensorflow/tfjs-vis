@@ -29,6 +29,11 @@ const VISOR_CONTAINER_ID = 'tfjs-visor-container';
  * singleton object will be replaced if the visor is removed from the DOM for
  * some reason.
  *
+ * ```js
+ * // Show the visor
+ * tfvis.visor();
+ * ```
+ *
  */
 /**
  * @doc {heading: 'Visor & Surfaces'}
@@ -114,6 +119,18 @@ export class Visor {
    * Most methods in tfjs-vis that take a surface also take a SurfaceInfo
    * so you rarely need to call this method unless you want to make a custom
    * plot.
+   *
+   * ```js
+   * // Create a surface on a tab
+   * tfvis.visor().surface({name: 'My Surface', tab: 'My Tab'});
+   * ```
+   *
+   * ```js
+   * // Create a surface and specify its height
+   * tfvis.visor().surface({name: 'Custom Height', tab: 'My Tab', styles: {
+   *    height: 500
+   * }})
+   * ```
    *
    * @param options
    */
