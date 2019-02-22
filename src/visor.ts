@@ -82,7 +82,7 @@ export function visor(): Visor {
  * `visor()` function.
  */
 /**
- * @doc {heading: 'Visor & Surfaces', namespace: 'visor()'}
+ * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
  */
 export class Visor {
   private visorComponent: VisorComponent;
