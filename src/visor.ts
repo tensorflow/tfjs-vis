@@ -35,9 +35,7 @@ const VISOR_CONTAINER_ID = 'tfjs-visor-container';
  * ```
  *
  */
-/**
- * @doc {heading: 'Visor & Surfaces'}
- */
+/** @doc {heading: 'Visor & Surfaces'} */
 export function visor(): Visor {
   if (typeof document === 'undefined') {
     throw new Error(
@@ -86,9 +84,7 @@ export function visor(): Visor {
  * An instance of the visor. An instance of this class is created using the
  * `visor()` function.
  */
-/**
- * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
- */
+/** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
 export class Visor {
   private visorComponent: VisorComponent;
   private surfaceList: Map<string, SurfaceInfoStrict>;
@@ -134,9 +130,7 @@ export class Visor {
    *
    * @param options
    */
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   surface(options: SurfaceInfo) {
     const {name} = options;
     const tab = options.tab == null ? DEFAULT_TAB : options.tab;
@@ -163,65 +157,47 @@ export class Visor {
     return this.visorComponent.getSurface(name, tab);
   }
 
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   isFullscreen() {
     return this.visorComponent.isFullscreen();
   }
 
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   isOpen() {
     return this.visorComponent.isOpen();
   }
 
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   close() {
     return this.visorComponent.close();
   }
 
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   open() {
     return this.visorComponent.open();
   }
 
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   toggle() {
     return this.visorComponent.toggle();
   }
 
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   toggleFullScreen() {
     return this.visorComponent.toggleFullScreen();
   }
 
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   bindKeys() {
     return this.visorComponent.bindKeys();
   }
 
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   unbindKeys() {
     return this.visorComponent.unbindKeys();
   }
 
-  /**
-   * @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'}
-   */
+  /** @doc {heading: 'Visor & Surfaces', subheading: 'Visor Methods'} */
   setActiveTab(tabName: string) {
     const tabs = this.visorComponent.state.tabs;
     if (!tabs.has(tabName)) {
