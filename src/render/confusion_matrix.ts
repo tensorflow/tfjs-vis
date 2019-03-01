@@ -17,7 +17,8 @@
 
 import embed, {Mode, VisualizationSpec} from 'vega-embed';
 
-import {ConfusionMatrixData, Drawable, VisOptions,} from '../types';
+import {ConfusionMatrixData, ConfusionMatrixOptions, Drawable} from '../types';
+
 import {getDrawArea} from './render_utils';
 
 /**
@@ -92,8 +93,7 @@ import {getDrawArea} from './render_utils';
 /** @doc {heading: 'Charts', namespace: 'render'} */
 export async function renderConfusionMatrix(
     data: ConfusionMatrixData, container: Drawable,
-    opts: VisOptions&
-    {shadeDiagonal?: boolean, showTextOverlay?: boolean} = {}): Promise<void> {
+    opts: ConfusionMatrixOptions): Promise<void> {
   const options = Object.assign({}, defaultOpts, opts);
   const drawArea = getDrawArea(container);
 

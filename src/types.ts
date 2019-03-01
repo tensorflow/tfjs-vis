@@ -185,3 +185,11 @@ export interface HeatmapOptions extends VisOptions {
   colorMap?: NamedColorMap;
   domain?: number[];
 }
+
+/**
+ * Visualization options for Confusion Matrix
+ */
+export interface ConfusionMatrixOptions extends VisOptions {
+  shadeDiagonal?: boolean;
+  showTextOverlay?: boolean;
+}

@@ -18,7 +18,7 @@
 import {renderConfusionMatrix} from '../render/confusion_matrix';
 import {getDrawArea} from '../render/render_utils';
 import {renderTable} from '../render/table';
-import {ConfusionMatrixData, Drawable} from '../types';
+import {ConfusionMatrixData, ConfusionMatrixOptions, Drawable} from '../types';
 
 /**
  * Renders a per class accuracy table for classification task evaluation
@@ -85,14 +85,15 @@ export async function showPerClassAccuracy(
  * surface to render to.
  * @param classLabels An array of string labels for the classes in
  * `confusionMatrix`. Optional.
- *
+ * @param opts: Rendering options for the confusion matrix
  */
 /**
  * @doc {heading: 'Models & Tensors', subheading: 'Model Evaluation', namespace:
  * 'show'}
  */
 export async function showConfusionMatrix(
-    confusionMatrix: number[][], container: Drawable, classLabels?: string[]) {
+    confusionMatrix: number[][], container: Drawable, classLabels?: string[],
+    opts: ConfusionMatrixOptions = {}) {
   const drawArea = getDrawArea(container);
 
   const confusionMatrixData: ConfusionMatrixData = {
@@ -100,7 +101,7 @@ export async function showConfusionMatrix(
     labels: classLabels,
   };
 
-  return renderConfusionMatrix(confusionMatrixData, drawArea, {
-    height: 450,
-  });
+  const options: ConfusionMatrixOptions = Object.assign({height: 450}, opts);
+
+  return renderConfusionMatrix(confusionMatrixData, drawArea, options);
 }
