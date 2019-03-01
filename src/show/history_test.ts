@@ -24,7 +24,7 @@ describe('fitCallbacks', () => {
 
   it('returns two callbacks', async () => {
     const container = {name: 'Test'};
-    const callbacks = fitCallbacks(container, ['loss', 'acc']);
+    const callbacks = fitCallbacks(['loss', 'acc'], container);
 
     expect(typeof (callbacks.onEpochEnd)).toEqual('function');
     expect(typeof (callbacks.onBatchEnd)).toEqual('function');
@@ -32,7 +32,7 @@ describe('fitCallbacks', () => {
 
   it('returns one callback', async () => {
     const container = {name: 'Test'};
-    const callbacks = fitCallbacks(container, ['loss', 'acc'], {
+    const callbacks = fitCallbacks(['loss', 'acc'], container, {
       callbacks: ['onBatchEnd'],
     });
 
@@ -43,7 +43,7 @@ describe('fitCallbacks', () => {
   it('onEpochEnd callback can render logs', async () => {
     const container = {name: 'Test'};
     const callbacks =
-        fitCallbacks(container, ['loss', 'val_loss', 'acc', 'val_acc']);
+        fitCallbacks(['loss', 'val_loss', 'acc', 'val_acc'], container);
 
     const l1 = {loss: 0.5, 'val_loss': 0.7};
     const l2 = {loss: 0.2, acc: 0.6, 'val_loss': 0.5, 'val_acc': 0.3};
@@ -60,7 +60,7 @@ describe('fitCallbacks', () => {
 
   it('onBatchEnd callback can render logs', async () => {
     const container = {name: 'Test'};
-    const callbacks = fitCallbacks(container, ['loss', 'acc']);
+    const callbacks = fitCallbacks(['loss', 'acc'], container);
 
     const l1 = {loss: 0.5};
     const l2 = {loss: 0.2, acc: 0.6};
@@ -85,7 +85,7 @@ describe('history', () => {
     const container = {name: 'Test'};
     const logs = [{loss: 0.5}, {loss: 0.3}];
     const metrics = ['loss'];
-    await history(container, logs, metrics);
+    await history(logs, metrics, container);
 
     expect(document.querySelectorAll('.vega-embed').length).toBe(1);
   });
@@ -94,7 +94,7 @@ describe('history', () => {
     const container = {name: 'Test'};
     const logs = [{loss: 0.2, acc: 0.6}, {loss: 0.1, acc: 0.65}];
     const metrics = ['loss', 'acc'];
-    await history(container, logs, metrics);
+    await history(logs, metrics, container);
 
     expect(document.querySelectorAll('.vega-embed').length).toBe(2);
   });
@@ -108,7 +108,7 @@ describe('history', () => {
       }
     };
     const metrics = ['loss', 'acc'];
-    await history(container, hist, metrics);
+    await history(hist, metrics, container);
 
     expect(document.querySelectorAll('.vega-embed').length).toBe(2);
   });
@@ -123,8 +123,8 @@ describe('history', () => {
       }
     };
 
-    await history(container, hist, ['loss']);
-    await history(container2, hist, ['acc']);
+    await history(hist, ['loss'], container);
+    await history(hist, ['acc'], container2);
 
     expect(document.querySelectorAll('.vega-embed').length).toBe(2);
   });

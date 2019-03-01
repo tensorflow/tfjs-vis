@@ -53,7 +53,7 @@ import {subSurface} from '../util/dom';
  *    batchSize: 32
  * });
  *
- * tfvis.show.history(surface, history, ['loss', 'acc']);
+ * tfvis.show.history(history, ['loss', 'acc'], surface);
  * ```
  *
  * ```js
@@ -86,7 +86,7 @@ import {subSurface} from '../util/dom';
  *    callbacks: {
  *      onEpochEnd: (epoch, log) => {
  *        history.push(log);
- *        tfvis.show.history(surface, history, ['loss', 'acc']);
+ *        tfvis.show.history(history, ['loss', 'acc'], surface);
  *      }
  *    }
  * });
@@ -115,7 +115,7 @@ import {subSurface} from '../util/dom';
  * 'show'}
  */
 export async function history(
-    container: Drawable, history: HistoryLike, metrics: string[],
+    history: HistoryLike, metrics: string[], container: Drawable,
     opts: HistoryOptions = {}): Promise<void> {
   // Get the draw surface
   const drawArea = getDrawArea(container);
@@ -278,7 +278,7 @@ function getValues(
  * 'show'}
  */
 export function fitCallbacks(
-    container: Drawable, metrics: string[],
+    metrics: string[], container: Drawable,
     opts: FitCallbackOptions = {}): FitCallbackHandlers {
   const accumulators: FitCallbackLogs = {};
   const callbackNames = opts.callbacks || ['onEpochEnd', 'onBatchEnd'];
@@ -295,14 +295,15 @@ export function fitCallbacks(
         historyOpts.xLabel = 'Epoch';
       }
 
-      // Because of how the _ (iteration) numbers are given in the layers api
-      // we have to store each metric for each callback in different arrays else
-      // we cannot get accurate 'global' batch numbers for onBatchEnd.
+      // Because of how the _ (iteration) numbers are given in the layers
+      // api we have to store each metric for each callback in different
+      // arrays else we cannot get accurate 'global' batch numbers for
+      // onBatchEnd.
 
       // However at render time we want to be able to combine metrics for a
       // given callback. So here we make a nested list of metrics, the first
-      // level are arrays for each callback, the second level contains arrays
-      // (of logs) for each metric within that callback.
+      // level are arrays for each callback, the second level contains
+      // arrays (of logs) for each metric within that callback.
 
       const metricLogs: Logs[][] = [];
       const presentMetrics: string[] = [];
@@ -320,7 +321,7 @@ export function fitCallbacks(
 
       const subContainer =
           subSurface(drawArea, callbackName, {title: callbackName});
-      history(subContainer, metricLogs, presentMetrics, historyOpts);
+      history(metricLogs, presentMetrics, subContainer, historyOpts);
       await nextFrame();
     };
   }

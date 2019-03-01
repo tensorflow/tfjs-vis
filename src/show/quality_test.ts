@@ -30,7 +30,7 @@ describe('perClassAccuracy', () => {
     ];
 
     const labels = ['cat', 'dog'];
-    await showPerClassAccuracy(container, acc, labels);
+    await showPerClassAccuracy(acc, container, labels);
     expect(document.querySelectorAll('table').length).toBe(1);
   });
 
@@ -40,7 +40,7 @@ describe('perClassAccuracy', () => {
       {accuracy: 0.5, count: 10},
       {accuracy: 0.8, count: 10},
     ];
-    await showPerClassAccuracy(container, acc);
+    await showPerClassAccuracy(acc, container);
     expect(document.querySelectorAll('table').length).toBe(1);
   });
 });
@@ -57,7 +57,7 @@ describe('confusionMatrix', () => {
       [6, 32],
     ];
     const labels = ['cat', 'dog'];
-    await showConfusionMatrix(container, matrix, labels);
+    await showConfusionMatrix(matrix, container, labels);
     expect(document.querySelectorAll('.vega-embed').length).toBe(1);
   });
 
@@ -67,7 +67,7 @@ describe('confusionMatrix', () => {
       [20, 3],
       [6, 32],
     ];
-    await showConfusionMatrix(container, matrix);
+    await showConfusionMatrix(matrix, container);
     expect(document.querySelectorAll('.vega-embed').length).toBe(1);
   });
 });

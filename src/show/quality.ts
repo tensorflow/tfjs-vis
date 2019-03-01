@@ -32,22 +32,21 @@ import {ConfusionMatrixData, Drawable} from '../types';
  *
  * const container = {name: 'Per Class Accuracy', tab: 'Evaluation'};
  * const categories = ['cat', 'dog', 'mouse'];
- * await tfvis.show.perClassAccuracy(container, result, categories);
+ * await tfvis.show.perClassAccuracy(result, container, categories);
  * ```
  *
- * @param container A `{name: string, tab?: string}` object specifying which
- * surface to render to.
  * @param classAccuracy An `Array<{accuracy: number, count: number}>` array with
  * the accuracy data. See metrics.perClassAccuracy for details on how to
  * generate this object.
+ * @param container A `{name: string, tab?: string}` object specifying which
+ * surface to render to.
  * @param classLabels An array of string labels for the classes in
  * `classAccuracy`. Optional.
  *
  */
 export async function showPerClassAccuracy(
-    container: Drawable,
     classAccuracy: Array<{accuracy: number, count: number}>,
-    classLabels?: string[]) {
+    container: Drawable, classLabels?: string[]) {
   const drawArea = getDrawArea(container);
 
   const headers = [
@@ -77,13 +76,13 @@ export async function showPerClassAccuracy(
  *
  * const container = {name: 'Confusion Matrix', tab: 'Evaluation'};
  * const categories = ['cat', 'dog', 'mouse', 'bird', 'fish'];
- * await tfvis.show.confusionMatrix(container, matrix, categories);
+ * await tfvis.show.confusionMatrix(matrix, container, categories);
  * ```
  *
- * @param container A `{name: string, tab?: string}` object specifying which
- * surface to render to.
  * @param confusionMatrix A nested array of numbers with the confusion matrix
  * values. See metrics.confusionMatrix for details on how to generate this.
+ * @param container A `{name: string, tab?: string}` object specifying which
+ * surface to render to.
  * @param classLabels An array of string labels for the classes in
  * `confusionMatrix`. Optional.
  *
@@ -93,7 +92,7 @@ export async function showPerClassAccuracy(
  * 'show'}
  */
 export async function showConfusionMatrix(
-    container: Drawable, confusionMatrix: number[][], classLabels?: string[]) {
+    confusionMatrix: number[][], container: Drawable, classLabels?: string[]) {
   const drawArea = getDrawArea(container);
 
   const confusionMatrixData: ConfusionMatrixData = {

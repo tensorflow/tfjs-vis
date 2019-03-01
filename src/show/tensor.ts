@@ -29,19 +29,19 @@ import {tensorStats} from '../util/math';
  * const tensor = tf.tensor1d([0, 0, 0, 0, 2, 3, 4]);
  *
  * const surface = {name: 'Values Distribution', tab: 'Model Inspection'};
- * await tfvis.show.valuesDistribution(surface, tensor);
+ * await tfvis.show.valuesDistribution(tensor, surface);
  * ```
  *
+ * @param tensor the input tensor
  * @param container A `{name: string, tab?: string}` object specifying which
  *  surface to render to.
- * @param tensor the input tensor
  *
  */
 /**
  * @doc {heading: 'Models & Tensors', subheading: 'Model Inspection', namespace:
  * 'show'}
  */
-export async function valuesDistribution(container: Drawable, tensor: Tensor) {
+export async function valuesDistribution(tensor: Tensor, container: Drawable) {
   const drawArea = getDrawArea(container);
   const stats = await tensorStats(tensor);
   const values = await tensor.data();

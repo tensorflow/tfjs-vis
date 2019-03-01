@@ -27,7 +27,7 @@ describe('perClassAccuracy', () => {
     const container = {name: 'Test'};
     const tensor = tf.tensor1d([0, 0, 0, 0, 2, 3, 4]);
 
-    await valuesDistribution(container, tensor);
+    await valuesDistribution(tensor, container);
     expect(document.querySelectorAll('table').length).toBe(1);
     expect(document.querySelectorAll('.vega-embed').length).toBe(1);
   });

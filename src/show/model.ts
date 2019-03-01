@@ -37,12 +37,12 @@ import {tensorStats} from '../util/math';
  * });
  *
  * const surface = { name: 'Model Summary', tab: 'Model Inspection'};
- * tfvis.show.modelSummary(surface, model);
+ * tfvis.show.modelSummary(model, surface);
  * ```
  *
+ * @param model
  * @param container A `{name: string, tab?: string}` object specifying which
  *     surface to render to.
- * @param model
  *
  */
 /**
@@ -52,7 +52,7 @@ import {tensorStats} from '../util/math';
  *  namespace: 'show'
  * }
  */
-export async function modelSummary(container: Drawable, model: tf.Model) {
+export async function modelSummary(model: tf.Model, container: Drawable) {
   const drawArea = getDrawArea(container);
   const summary = getModelSummary(model);
 
@@ -87,12 +87,12 @@ export async function modelSummary(container: Drawable, model: tf.Model) {
  * });
  *
  * const surface = { name: 'Layer Summary', tab: 'Model Inspection'};
- * tfvis.show.layer(surface, model.getLayer(undefined, 1));
+ * tfvis.show.layer(model.getLayer(undefined, 1), surface);
  * ```
  *
+ * @param layer a `tf.layers.Layer`
  * @param container A `{name: string, tab?: string}` object specifying which
  *     surface to render to.
- * @param layer a `tf.layers.Layer`
  *
  */
 /**
@@ -102,7 +102,7 @@ export async function modelSummary(container: Drawable, model: tf.Model) {
  *  namespace: 'show'
  * }
  */
-export async function layer(container: Drawable, layer: Layer) {
+export async function layer(layer: Layer, container: Drawable) {
   const drawArea = getDrawArea(container);
   const details = await getLayerDetails(layer);
 

@@ -28,7 +28,7 @@ describe('modelSummary', () => {
     const container = {name: 'Test'};
     const model = tf.sequential();
     model.add(tf.layers.dense({units: 1, inputShape: [1]}));
-    await modelSummary(container, model);
+    await modelSummary(model, container);
     expect(document.querySelectorAll('table').length).toBe(1);
     expect(document.querySelectorAll('tr').length).toBe(2);
   });
@@ -45,7 +45,7 @@ describe('layer', () => {
     const dense = tf.layers.dense({units: 1, inputShape: [1]});
     model.add(dense);
     model.compile({optimizer: 'sgd', loss: 'meanSquaredError'});
-    await layer(container, dense);
+    await layer(dense, container);
     expect(document.querySelectorAll('table').length).toBe(1);
     expect(document.querySelectorAll('tr').length).toBe(3);
   });
