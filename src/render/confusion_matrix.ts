@@ -93,7 +93,7 @@ import {getDrawArea} from './render_utils';
 /** @doc {heading: 'Charts', namespace: 'render'} */
 export async function renderConfusionMatrix(
     data: ConfusionMatrixData, container: Drawable,
-    opts: ConfusionMatrixOptions): Promise<void> {
+    opts: ConfusionMatrixOptions = {}): Promise<void> {
   const options = Object.assign({}, defaultOpts, opts);
   const drawArea = getDrawArea(container);
 
