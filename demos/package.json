@@ -7,7 +7,7 @@
     "watch-api": "NODE_ENV=development parcel ./api/index.html --no-hmr --open --no-autoinstall",
     "watch-mnist": "NODE_ENV=development parcel ./mnist/index.html --no-hmr --open --no-autoinstall",
     "watch-mnist-internals": "NODE_ENV=development parcel ./mnist_internals/index.html --no-hmr --open --no-autoinstall",
-    "build-demo": "NODE_ENV=production parcel build --no-minify --public-url ./"
+    "build-demo": "NODE_ENV=production parcel build --no-minify --detailed-report --public-url ./"
   },
   "author": "",
   "license": "Apache-2.0",
