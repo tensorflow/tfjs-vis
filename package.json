@@ -1,6 +1,6 @@
 {
   "name": "@tensorflow/tfjs-vis",
-  "version": "1.0.2",
+  "version": "1.0.3-alpha.0",
   "description": "Utilities for in browser visualization with TensorFlow.js",
   "repository": "https://github.com/tensorflow/tfjs-vis",
   "license": "Apache-2.0",
@@ -25,9 +25,9 @@
     "glamor": "^2.20.40",
     "glamor-tachyons": "^1.0.0-alpha.1",
     "preact": "^8.2.9",
-    "vega-embed": "3.28.0",
+    "vega-lite": "3.0.0-rc10",
     "vega-lib": "4.4.0",
-    "vega-lite": "3.0.0-rc10"
+    "vega-embed": "3.28.0"
   },
   "devDependencies": {
     "@tensorflow/tfjs": "~1.0.0",

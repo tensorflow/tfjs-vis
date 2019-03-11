@@ -28,6 +28,11 @@ module.exports = {
     library: 'tfvis',
   },
   externals: {
-    '@tensorflow/tfjs': 'tf',
+    '@tensorflow/tfjs': {
+      root: 'tf',
+      commonjs: '@tensorflow/tfjs',
+      commonjs2: '@tensorflow/tfjs',
+      amd: '@tensorflow/tfjs',
+    }
   }
 };
