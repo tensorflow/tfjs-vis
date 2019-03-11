@@ -13,7 +13,6 @@ karma.conf.js
 .travis.yml
 CONTRIBUTING.md
 tslint.json
-yarn.lock
 DEVELOPMENT.md
 ISSUE_TEMPLATE.md
 PULL_REQUEST_TEMPLATE.md
