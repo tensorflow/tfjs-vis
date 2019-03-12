@@ -18,11 +18,6 @@
 const karmaTypescriptConfig = {
   tsconfig: 'tsconfig.json',
   reports: {},
-  bundlerOptions: {
-    acornOptions: {
-      ecmaVersion: '2017',
-    }
-  }
 };
 
 // Enable coverage reports and instrumentation under KARMA_COVERAGE=1 env

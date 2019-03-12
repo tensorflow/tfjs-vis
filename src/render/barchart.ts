@@ -15,7 +15,6 @@
  * =============================================================================
  */
 
-import {View} from 'vega';
 import embed, {Mode, Result as EmbedRes, VisualizationSpec} from 'vega-embed';
 
 import {Drawable, VisOptions} from '../types';
@@ -143,6 +142,7 @@ const instances: Map<HTMLElement, InstanceInfo> =
     new Map<HTMLElement, InstanceInfo>();
 
 interface InstanceInfo {
-  view: View;
+  // tslint:disable-next-line:no-any
+  view: any;
   lastOptions: VisOptions;
 }
