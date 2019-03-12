@@ -15,8 +15,8 @@
  * =============================================================================
  */
 
+import {View} from 'vega';
 import embed, {Mode, Result as EmbedRes, VisualizationSpec} from 'vega-embed';
-import {View} from 'vega-lib';
 
 import {Drawable, VisOptions} from '../types';
 
