@@ -18,6 +18,11 @@
 const karmaTypescriptConfig = {
   tsconfig: 'tsconfig.json',
   reports: {},
+  bundlerOptions: {
+    acornOptions: {
+      ecmaVersion: '2017',
+    }
+  }
 };
 
 // Enable coverage reports and instrumentation under KARMA_COVERAGE=1 env
@@ -37,7 +42,7 @@ module.exports = function(config) {
 
   config.set({
     frameworks: ['jasmine', 'karma-typescript'],
-    files: [{pattern: 'src/**/*.ts*'}],
+    files: ['src/**/*.ts*'],
     exclude: ['src/types/**'],
     preprocessors: {
       '**/*.ts': ['karma-typescript'],

@@ -26,8 +26,8 @@
     "glamor-tachyons": "^1.0.0-alpha.1",
     "preact": "^8.2.9",
     "vega": "5.0.0",
-    "vega-lite": "3.0.0-rc14",
-    "vega-embed": "4.0.0-rc1"
+    "vega-embed": "4.0.0-rc1",
+    "vega-lite": "3.0.0-rc14"
   },
   "devDependencies": {
     "@tensorflow/tfjs": "~1.0.0",
