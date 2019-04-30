@@ -73,14 +73,14 @@ export interface SurfaceInfoStrict extends SurfaceInfo {
 /**
  * Style properties are generally optional as components will specify defaults.
  */
-export type StyleOptions = Partial<CSSOptions>;
-export interface CSSOptions {
-  width: string;
-  height: string;
-  maxWidth: string;
-  maxHeight: string;
+export interface StyleOptions {
+  width?: string;
+  height?: string;
+  maxWidth?: string;
+  maxHeight?: string;
 }
 
+/** @docinline */
 export type Drawable = HTMLElement|Surface|SurfaceInfo|{
   drawArea: HTMLElement;
 };
@@ -124,10 +124,29 @@ export interface XYPlotOptions extends VisOptions {
 /**
  * Histogram options.
  */
-export type HistogramOpts = VisOptions&{
+export interface HistogramOpts extends VisOptions {
+  /**
+   * By default a histogram will also compute and display summary statistics.
+   * If stats is set to false then summary statistics will not be displayed.
+   *
+   * Pre computed stats can also be passed in and should have the following
+   * format:
+   *  {
+   *    numVals?: number,
+   *    min?: number,
+   *    max?: number,
+   *    numNans?: number,
+   *    numZeros?: number,
+   *    numInfs?: number,
+   *  }
+   */
   stats?: HistogramStats|false;
+
+  /**
+   * Maximum number of bins in histogram.
+   */
   maxBins?: number;
-};
+}
 
 /**
  * Summary statistics for histogram.
@@ -158,9 +177,10 @@ export interface ConfusionMatrixData {
 /**
  * Datum format for scatter and line plots
  */
-export type Point2D = {
-  x: number; y: number;
-};
+export interface Point2D {
+  x: number;
+  y: number;
+}
 
 /**
  * Data format for confusion matrix
@@ -176,6 +196,7 @@ export interface HeatmapData {
  *
  * Currently supported by heatmap
  */
+/** @docinline */
 export type NamedColorMap = 'greyscale'|'viridis'|'blues';
 
 /**
