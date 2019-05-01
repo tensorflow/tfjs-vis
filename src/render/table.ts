@@ -101,15 +101,14 @@ export function table(
   //
   const format = d3Format(',.4~f');
 
-  const rows = table.select('tbody').selectAll('tr').data((data.values as []));
+  const rows = table.select('tbody').selectAll('tr').data(data.values);
   const rowsEnter = rows.enter().append('tr');
 
   // Nested selection to add individual cells
   const cellStyle = css({...tac('pa1 bb b--black-20')});
   const cells = rows.merge(rowsEnter).selectAll('td').data(d => d);
   const cellsEnter = cells.enter().append('td').attr('class', `${cellStyle}`);
-  cells.merge(cellsEnter)
-      .html((d: number|string) => typeof d === 'number' ? format(d) : d);
+  cells.merge(cellsEnter).html(d => typeof d === 'number' ? format(d) : d);
 
   cells.exit().remove();
   rows.exit().remove();

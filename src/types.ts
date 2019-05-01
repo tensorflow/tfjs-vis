@@ -304,5 +304,6 @@ export interface TableData {
    *
    * Typically the values are numbers or strings.
    */
-  values: number[][]|string[][];
+  // tslint:disable-next-line:no-any
+  values: any[][];
 }
