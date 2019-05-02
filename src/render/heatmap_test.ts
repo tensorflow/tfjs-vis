@@ -40,6 +40,17 @@ describe('renderHeatmap', () => {
     expect(document.querySelectorAll('.vega-embed').length).toBe(1);
   });
 
+  it('renders a chart with rowMajor=true', async () => {
+    const data: HeatmapData = {
+      values: [[4, 2, 8], [1, 7, 2], [3, 3, 20], [8, 2, 8]],
+    };
+
+    const container = document.getElementById('container') as HTMLElement;
+    await heatmap(container, data, {rowMajor: true});
+
+    expect(document.querySelectorAll('.vega-embed').length).toBe(1);
+  });
+
   it('renders a chart with a tensor', async () => {
     const values = tf.tensor2d([[4, 2, 8], [1, 7, 2], [3, 3, 20]]);
     const data: HeatmapData = {
