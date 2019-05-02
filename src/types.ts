@@ -256,7 +256,7 @@ export interface HeatmapData {
   /**
    * Matrix of values in column-major order.
    *
-   * Row major order is supported by setting a boolean in options
+   * Row major order is supported by setting a boolean in options.
    */
   values: number[][]|Tensor2D;
   /**
