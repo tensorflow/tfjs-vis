@@ -67,26 +67,31 @@ export async function heatmap(
   let inputValues = data.values;
   if (options.rowMajor) {
     let originalShape: number[];
+    let transposed: tf.Tensor2D;
     if (inputValues instanceof tf.Tensor) {
       originalShape = inputValues.shape;
-      inputValues = inputValues.transpose();
+      transposed = inputValues.transpose();
     } else {
       originalShape = [inputValues.length, inputValues[0].length];
-      inputValues =
+      transposed =
           tf.tidy(() => tf.tensor2d(inputValues as number[][]).transpose());
     }
-    // In either case we have created a new tensor, download the values and
-    // dispose that tensor here.
-    const transposedTensor = inputValues;
-    inputValues = await transposedTensor.array();
-    transposedTensor.dispose();
+
+    assert(
+        transposed.rank === 2,
+        'Input to renderHeatmap must be a 2d array or Tensor2d');
+
+    // Download the intermediate tensor values and
+    // dispose the transposed tensor.
+    inputValues = await transposed.array();
+    transposed.dispose();
 
     const transposedShape = [inputValues.length, inputValues[0].length];
-    tf.util.assert(
+    assert(
         originalShape[0] === transposedShape[1] &&
             originalShape[1] === transposedShape[0],
-        () => `Unexpected transposed shape. Original ${
-            originalShape} : Transposed ${transposedShape}`);
+        `Unexpected transposed shape. Original ${originalShape} : Transposed ${
+            transposedShape}`);
   }
 
   // Format data for vega spec; an array of objects, one for for each cell
